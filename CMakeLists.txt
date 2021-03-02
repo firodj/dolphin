@@ -617,7 +617,7 @@ else()
   add_subdirectory(Externals/liblzma)
 endif()
 
-pkg_check_modules(ZSTD QUIET libzstd>=1.4.0)
+# pkg_check_modules(ZSTD QUIET libzstd>=1.4.0)
 if(ZSTD_FOUND)
   message(STATUS "Using shared zstd version: " ${ZSTD_VERSION})
 else()

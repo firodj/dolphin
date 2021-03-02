@@ -497,6 +497,10 @@ if(APPLE)
     POST_BUILD COMMAND
     ${CMAKE_INSTALL_NAME_TOOL} -add_rpath "@executable_path/../Frameworks/"
     $<TARGET_FILE:dolphin-emu>)
+
+  if(CMAKE_GENERATOR STREQUAL Xcode)
+    set_target_properties(dolphin-emu PROPERTIES XCODE_ATTRIBUTE_CODE_SIGN_IDENTITY "")
+  endif()
 else()
   install(TARGETS dolphin-emu RUNTIME DESTINATION ${bindir})
 endif()
